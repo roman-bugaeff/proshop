@@ -1,16 +1,19 @@
-import React from "react";
-import Product from '../components/Product.js';
-import products from "../products";
-import { Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react"
+import Product from "../components/Product.js"
+//import products from "../products"
+import { Row, Col } from "react-bootstrap"
 
 const HomeScreen = () => {
+
+const [products, setProducts] = useState([])
+
   return (
     <>
       <h1>Latest Products</h1>
       <Row>
         {products.map((product) => (
-          <Col sm={12} md={6} lg={4} xl={3}>
-           <Product product={product} />
+          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+            <Product product={product} />
           </Col>
         ))}
       </Row>
